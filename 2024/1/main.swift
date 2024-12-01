@@ -1,5 +1,7 @@
 import Foundation
 
+//First part:
+
 let fileURL = URL(fileURLWithPath: "./input.txt")
 
 let fileContents = try! String(contentsOf: fileURL, encoding: .utf8)
@@ -20,7 +22,7 @@ for element in array {
 firstID.sort()
 secondID.sort()
 
-for (index,first) in firstID.enumerated() {
+for (index, first) in firstID.enumerated() {
 
   let second = secondID[index]
 
@@ -29,4 +31,18 @@ for (index,first) in firstID.enumerated() {
   totalDistance += distance
 }
 
-print(totalDistance)
+print("First part solution: \(totalDistance)")
+
+// Second part:
+
+var result = 0
+
+for first in firstID {
+  for second in secondID {
+    if first == second {
+      result += first
+    }
+  }
+}
+
+print("Second part solution: \(result)")
